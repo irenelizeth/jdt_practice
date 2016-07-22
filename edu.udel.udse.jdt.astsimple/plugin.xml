@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Sample Category"
+            id="edu.udel.udse.jdt.astsimple.commands.category">
+      </category>
+      <command
+            name="AST Viewer Command"
+            categoryId="edu.udel.udse.jdt.astsimple.commands.category"
+            id="edu.udel.udse.jdt.astsimple.commands.ASTCommand">
+      </command>
+      <category
+            id="edu.udel.udse.jdt.astsimple.commands.category"
+            name="Sample Category">
+      </category>
+      <command
+            categoryId="edu.udel.udse.jdt.astsimple.commands.category"
+            id="edu.udel.udse.jdt.astsimple.commands.GetInfoCommand"
+            name="Get Info">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="edu.udel.udse.jdt.astsimple.commands.ASTCommand"
+            class="edu.udel.udse.jdt.astsimple.handlers.ASTViewerHandler">
+      </handler>
+      <handler
+            class="edu.udel.udse.jdt.astsimple.handlers.GetInfo"
+            commandId="edu.udel.udse.jdt.astsimple.commands.GetInfoCommand">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="edu.udel.udse.jdt.astsimple.commands.sampleCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+      <key
+            commandId="edu.udel.udse.jdt.astsimple.commands.GetInfoCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+6">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="AST Menu"
+               mnemonic="M"
+               id="edu.udel.udse.jdt.astsimple.menus.ASTMenu">
+            <command
+                  commandId="edu.udel.udse.jdt.astsimple.commands.sampleCommand"
+                  icon="icons/sample.gif"
+                  id="edu.udel.udse.jdt.astsimple.menus.sampleCommand"
+                  label="AST Command"
+                  mnemonic="S">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="edu.udel.udse.jdt.astsimple.toolbars.sampleToolbar">
+            <command
+                  commandId="edu.udel.udse.jdt.astsimple.commands.sampleCommand"
+                  icon="icons/sample.gif"
+                  tooltip="Say hello world"
+                  id="edu.udel.udse.jdt.astsimple.toolbars.sampleCommand">
+            </command>
+         </toolbar>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="edu.udel.udse.jdt.astsimple.toolbars.sampleToolbar">
+            <command
+                  commandId="edu.udel.udse.jdt.astsimple.commands.sampleCommand"
+                  icon="icons/sample.gif"
+                  id="edu.udel.udse.jdt.astsimple.toolbars.sampleCommand"
+                  tooltip="Say hello world">
+            </command>
+         </toolbar>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="edu.udel.udse.jdt.astsimple.menus.ASTMenu"
+               label="AST Menu"
+               mnemonic="M">
+            <command
+                  commandId="edu.udel.udse.jdt.astsimple.commands.GetInfoCommand"
+                  id="edu.udel.udse.jdt.astsimple.menus.GetInfoCommand"
+                  label="Get Info AST"
+                  mnemonic="S">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>
